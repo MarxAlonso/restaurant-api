@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <rect width="800" height="600" fill="#f5f5dc"/>
+  <ellipse cx="400" cy="300" rx="200" ry="150" fill="#f2e6d9"/>
+  <path d="M250,300 C300,250 500,250 550,300 S500,350 450,350 S350,350 300,350 S200,350 250,300" fill="#f2e6d9" stroke="#e6ccb3" stroke-width="5"/>
+  <path d="M280,280 C350,260 450,260 520,280" fill="none" stroke="#f9e4b7" stroke-width="15" stroke-linecap="round"/>
+  <path d="M300,310 C370,290 430,290 500,310" fill="none" stroke="#f9e4b7" stroke-width="15" stroke-linecap="round"/>
+  <path d="M320,340 C380,320 420,320 480,340" fill="none" stroke="#f9e4b7" stroke-width="15" stroke-linecap="round"/>
+  <circle cx="350" cy="290" r="10" fill="#e74c3c"/>
+  <circle cx="450" cy="290" r="10" fill="#e74c3c"/>
+  <circle cx="380" cy="320" r="10" fill="#e74c3c"/>
+  <circle cx="420" cy="320" r="10" fill="#e74c3c"/>
+  <text x="400" y="500" font-family="Arial" font-size="32" text-anchor="middle" fill="#333333">Pasta Carbonara</text>
+</svg>
