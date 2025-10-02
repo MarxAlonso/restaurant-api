@@ -3,6 +3,8 @@ const cors = require('cors');
 const morgan = require('morgan');
 const path = require('path');
 const dishRoutes = require('./routes/dishRoutes');
+const drinkRoutes = require('./routes/drinkRoutes');
+const dessertRoutes = require('./routes/dessertRoutes');
 
 // Inicializar la aplicación Express
 const app = express();
@@ -19,6 +21,8 @@ app.use(express.static(path.join(__dirname, '../public')));
 
 // Rutas
 app.use('/api/dishes', dishRoutes);
+app.use('/api/drinks', drinkRoutes);
+app.use('/api/desserts', dessertRoutes);
 
 // Ruta principal
 app.get('/', (req, res) => {
@@ -26,7 +30,13 @@ app.get('/', (req, res) => {
     message: 'Bienvenido a la API de Restaurante',
     endpoints: {
       dishes: '/api/dishes',
-      dishById: '/api/dishes/:id'
+      dishById: '/api/dishes/:id',
+      drinks: '/api/drinks',
+      drinkById: '/api/drinks/:id',
+      drinksByType: '/api/drinks/type/:type',
+      desserts: '/api/desserts',
+      dessertById: '/api/desserts/:id',
+      lowCalorieDesserts: '/api/desserts/low-calorie'
     }
   });
 });
