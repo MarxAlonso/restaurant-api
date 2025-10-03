@@ -16,40 +16,40 @@ const drinks = [
     1, 
     "Limonada Casera", 
     "Refrescante limonada preparada con limones frescos y un toque de menta", 
-    3.50, 
-    "/images/limonada.jpg",
+    8.00, 
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5_E_fsCTMfI6GX9J6k_zgZhx9ov7LQyVugA&s",
     "refresco"
   ),
   new Drink(
     2, 
     "Vino Tinto Reserva", 
     "Vino tinto de crianza con notas de frutos rojos y un final elegante", 
-    7.99, 
-    "/images/vino.jpg",
+    27.00, 
+    "https://licoreriasunidas.pe/cdn/shop/articles/tipos-de-vinos.jpg?v=1693249338",
     "alcohólica"
   ),
   new Drink(
     3, 
     "Café Espresso", 
     "Café intenso de tueste medio con crema perfecta", 
-    2.50, 
-    "/images/cafe.jpg",
+    8.00, 
+    "https://www.mokasol.es/wp-content/uploads/2021/07/cafe-expreso-con-espuma-en-forma-de-corazon-800x530.jpg",
     "caliente"
   ),
   new Drink(
     4, 
     "Agua Mineral", 
     "Agua mineral natural sin gas", 
-    1.50, 
-    "/images/agua.jpg",
+    2.50, 
+    "https://www.aguasanmateo.com.pe/sites/g/files/seuoyk161/files/2022-03/abi-home-img-orig-1-032022-2.jpg",
     "refresco"
   ),
   new Drink(
     5, 
-    "Smoothie de Frutas", 
-    "Batido natural de frutas de temporada con yogurt", 
-    4.95, 
-    "/images/smoothie.jpg",
+    "Smoothie de Fresa", 
+    "Batido natural de fresas de temporada con yogurt", 
+    11.00, 
+    "https://www.deleitas.com/pics_fotosrecetas/6/xmed_full_strawberry-smoothie-800x500.jpg.pagespeed.ic.11xb0ZNAtZ.jpg",
     "refresco"
   )
 ];
