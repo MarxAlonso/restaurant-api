@@ -17,8 +17,8 @@ const desserts = [
     1,
     'Tarta de Chocolate',
     'Deliciosa tarta de chocolate con ganache y frutos rojos',
-    5.99,
-    '/images/tarta_chocolate.jpg',
+    5.50,
+    'https://lafavorita.com.ec/wp-content/uploads/2024/05/torta-chocolate.jpg',
     350
   ),
   new Dessert(
@@ -26,15 +26,15 @@ const desserts = [
     'Tiramisú',
     'Auténtico tiramisú italiano con café y mascarpone',
     6.50,
-    '/images/tiramisu.jpg',
+    'https://www.recetasnestle.com.ec/sites/default/files/srh_recipes/7f45d6f8807ebc775928651a3398dce9.png',
     300
   ),
   new Dessert(
     3,
     'Helado de Vainilla',
     'Cremoso helado de vainilla con sirope de chocolate',
-    3.99,
-    '/images/helado_vainilla.jpg',
+    3.50,
+    'https://www.gourmet.cl/wp-content/uploads/2016/09/Helado_Vainilla-web-553x458.jpg',
     250
   ),
   new Dessert(
@@ -42,15 +42,15 @@ const desserts = [
     'Flan de Caramelo',
     'Tradicional flan casero con caramelo líquido',
     4.50,
-    '/images/flan_caramelo.jpg',
+    'https://cloudfront-us-east-1.images.arcpublishing.com/elespectador/JFWIJRN6I5CTTEBGHQ5RBESHXY.jpg',
     280
   ),
   new Dessert(
     5,
     'Crema Catalana',
     'Crema catalana con azúcar caramelizado',
-    5.25,
-    '/images/crema_catalana.jpg',
+    5.50,
+    'https://www.eladerezo.com/wp-content/uploads/2015/04/receta-de-crema-catalana-1200x673.jpg',
     320
   )
 ];
