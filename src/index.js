@@ -51,3 +51,26 @@ app.listen(PORT, () => {
 });
 
 module.exports = app;
+
+/**
+ * Archivo principal de la API del Restaurante
+ * --------------------------------------------
+ * Este servidor Express expone endpoints REST para:
+ * - Platos (Dishes)
+ * - Bebidas (Drinks)
+ * - Postres (Desserts)
+ * - Promociones (Promotions)
+ *
+ * Se utiliza en la aplicación móvil (Android Studio)
+ * como fuente de datos mediante peticiones HTTP.
+ *
+ * Ejemplo de consumo desde Android:
+ *  GET http://localhost:3000/api/promotions 
+ * Aunque ya lo subi a vercel
+ */
+
+/**
+ * @route GET /api/promotions
+ * @description Obtiene todas las promociones del restaurante
+ * @access Público
+ */
