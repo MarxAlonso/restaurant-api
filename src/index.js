@@ -5,6 +5,7 @@ const path = require('path');
 const dishRoutes = require('./routes/dishRoutes');
 const drinkRoutes = require('./routes/drinkRoutes');
 const dessertRoutes = require('./routes/dessertRoutes');
+const promotionRoutes = require('./routes/promotionRoutes');
 
 // Inicializar la aplicación Express
 const app = express();
@@ -23,6 +24,7 @@ app.use(express.static(path.join(__dirname, '../public')));
 app.use('/api/dishes', dishRoutes);
 app.use('/api/drinks', drinkRoutes);
 app.use('/api/desserts', dessertRoutes);
+app.use('/api/promotions', promotionRoutes);
 
 // Ruta principal
 app.get('/', (req, res) => {
@@ -36,7 +38,9 @@ app.get('/', (req, res) => {
       drinksByType: '/api/drinks/type/:type',
       desserts: '/api/desserts',
       dessertById: '/api/desserts/:id',
-      lowCalorieDesserts: '/api/desserts/low-calorie'
+      lowCalorieDesserts: '/api/desserts/low-calorie',
+      promotions: '/api/promotions',
+      promotionById: '/api/promotions/:id',
     }
   });
 });
