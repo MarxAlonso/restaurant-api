@@ -22,7 +22,18 @@ cd restaurant-api
 npm install
 ```
 
-3. Inicia el servidor:
+3. Configura las variables de entorno (copiar y editar `.env.example`):
+```
+cp .env.example .env
+# Edita .env con tus credenciales de Turso
+```
+
+4. Ejecuta la migración del esquema en Turso:
+```
+npm run db:migrate
+```
+
+5. Inicia el servidor:
 ```
 npm start
 ```
@@ -63,6 +74,21 @@ npm install -g vercel
 ```
 vercel
 ```
+
+### Variables de entorno en Vercel
+
+Configura las siguientes variables en tu proyecto de Vercel:
+
+- `TURSO_DATABASE_URL` (o `LIBSQL_URL` / `DATABASE_URL`)
+- `TURSO_AUTH_TOKEN` (o `LIBSQL_AUTH_TOKEN` / `DATABASE_AUTH_TOKEN`)
+
+Ejecuta `npm run db:migrate` localmente para crear el esquema, o crea una ejecución en tu pipeline que aplique `src/db/schema.sql` a tu base de datos Turso.
+
+### Notas sobre Turso/libsql
+
+- La conexión se maneja con `@libsql/client` leyendo variables de entorno.
+- Los modelos (`src/models/*`) fueron migrados a consultas asíncronas sobre SQLite.
+- El archivo `src/db/libsql.js` centraliza la conexión.
 
 ## Ejemplo de uso
 

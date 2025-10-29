@@ -3,9 +3,9 @@ const dishModel = require('../models/dish');
 // Controladores para las operaciones de platos
 const dishController = {
   // Obtener todos los platos
-  getAllDishes: (req, res) => {
+  getAllDishes: async (req, res) => {
     try {
-      const dishes = dishModel.getAll();
+      const dishes = await dishModel.getAll();
       return res.status(200).json({
         success: true,
         data: dishes,
@@ -21,10 +21,10 @@ const dishController = {
   },
 
   // Obtener un plato por su ID
-  getDishById: (req, res) => {
+  getDishById: async (req, res) => {
     try {
       const { id } = req.params;
-      const dish = dishModel.getById(id);
+      const dish = await dishModel.getById(id);
       
       if (!dish) {
         return res.status(404).json({
@@ -48,7 +48,7 @@ const dishController = {
   },
 
   // Crear un nuevo plato
-  createDish: (req, res) => {
+  createDish: async (req, res) => {
     try {
       const { name, description, price, imageUrl } = req.body;
       
@@ -60,7 +60,7 @@ const dishController = {
         });
       }
 
-      const newDish = dishModel.create({
+      const newDish = await dishModel.create({
         name,
         description,
         price,

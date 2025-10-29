@@ -3,9 +3,9 @@ const promotionModel = require('../models/promotion');
 // Controladores para las operaciones de promociones
 const promotionController = {
   // Obtener todas las promociones
-  getAllPromotions: (req, res) => {
+  getAllPromotions: async (req, res) => {
     try {
-      const promos = promotionModel.getAll();
+      const promos = await promotionModel.getAll();
       return res.status(200).json({
         success: true,
         data: promos,
@@ -21,10 +21,10 @@ const promotionController = {
   },
 
   // Obtener una promoción por su ID
-  getPromotionById: (req, res) => {
+  getPromotionById: async (req, res) => {
     try {
       const { id } = req.params;
-      const promo = promotionModel.getById(id);
+      const promo = await promotionModel.getById(id);
 
       if (!promo) {
         return res.status(404).json({
@@ -48,7 +48,7 @@ const promotionController = {
   },
 
   // Crear una nueva promoción
-  createPromotion: (req, res) => {
+  createPromotion: async (req, res) => {
     try {
       const { name, description, price, imageUrl } = req.body;
 
@@ -59,7 +59,7 @@ const promotionController = {
         });
       }
 
-      const newPromotion = promotionModel.create({
+      const newPromotion = await promotionModel.create({
         name,
         description,
         price,

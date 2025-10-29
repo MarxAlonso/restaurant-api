@@ -3,9 +3,9 @@ const { dessertModel } = require('../models/dessert');
 
 const dessertController = {
   // Obtener todos los postres
-  getAllDesserts: (req, res) => {
+  getAllDesserts: async (req, res) => {
     try {
-      const desserts = dessertModel.getAll();
+      const desserts = await dessertModel.getAll();
       return res.status(200).json({
         success: true,
         count: desserts.length,
@@ -20,10 +20,10 @@ const dessertController = {
   },
 
   // Obtener un postre por ID
-  getDessertById: (req, res) => {
+  getDessertById: async (req, res) => {
     try {
       const id = req.params.id;
-      const dessert = dessertModel.getById(id);
+      const dessert = await dessertModel.getById(id);
       
       if (!dessert) {
         return res.status(404).json({
@@ -45,7 +45,7 @@ const dessertController = {
   },
 
   // Crear un nuevo postre
-  createDessert: (req, res) => {
+  createDessert: async (req, res) => {
     try {
       const { name, description, price, imageUrl, calories } = req.body;
       
@@ -57,7 +57,7 @@ const dessertController = {
         });
       }
 
-      const newDessert = dessertModel.create({
+      const newDessert = await dessertModel.create({
         name,
         description,
         price,
@@ -78,9 +78,9 @@ const dessertController = {
   },
 
   // Obtener postres bajos en calorías
-  getLowCalorieDesserts: (req, res) => {
+  getLowCalorieDesserts: async (req, res) => {
     try {
-      const desserts = dessertModel.getLowCalorie();
+      const desserts = await dessertModel.getLowCalorie();
       return res.status(200).json({
         success: true,
         count: desserts.length,

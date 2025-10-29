@@ -3,9 +3,9 @@ const drinkModel = require('../models/drink');
 // Controladores para las operaciones de bebidas
 const drinkController = {
   // Obtener todas las bebidas
-  getAllDrinks: (req, res) => {
+  getAllDrinks: async (req, res) => {
     try {
-      const drinks = drinkModel.getAll();
+      const drinks = await drinkModel.getAll();
       return res.status(200).json({
         success: true,
         data: drinks,
@@ -21,10 +21,10 @@ const drinkController = {
   },
 
   // Obtener una bebida por su ID
-  getDrinkById: (req, res) => {
+  getDrinkById: async (req, res) => {
     try {
       const { id } = req.params;
-      const drink = drinkModel.getById(id);
+      const drink = await drinkModel.getById(id);
       
       if (!drink) {
         return res.status(404).json({
@@ -48,7 +48,7 @@ const drinkController = {
   },
 
   // Crear una nueva bebida
-  createDrink: (req, res) => {
+  createDrink: async (req, res) => {
     try {
       const { name, description, price, imageUrl, type } = req.body;
       
@@ -60,7 +60,7 @@ const drinkController = {
         });
       }
 
-      const newDrink = drinkModel.create({
+      const newDrink = await drinkModel.create({
         name,
         description,
         price,
@@ -83,10 +83,10 @@ const drinkController = {
   },
 
   // Obtener bebidas por tipo
-  getDrinksByType: (req, res) => {
+  getDrinksByType: async (req, res) => {
     try {
       const { type } = req.params;
-      const drinks = drinkModel.getByType(type);
+      const drinks = await drinkModel.getByType(type);
       
       return res.status(200).json({
         success: true,
