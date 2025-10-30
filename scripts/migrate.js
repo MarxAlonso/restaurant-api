@@ -18,7 +18,9 @@ const client = createClient({ url: databaseUrl, authToken });
 async function run() {
   try {
     const schemaPath = path.join(__dirname, '../src/db/schema.sql');
-    const sql = fs.readFileSync(schemaPath, 'utf8');
+    const sqlRaw = fs.readFileSync(schemaPath, 'utf8');
+    // Normalizar posibles espacios no rompibles (NBSP) y saltos de línea
+    const sql = sqlRaw.replace(/\u00A0/g, ' ').replace(/\r\n/g, '\n');
 
     // Dividir por ';' y ejecutar sentencias no vacías
     const statements = sql
@@ -26,8 +28,15 @@ async function run() {
       .map((s) => s.trim())
       .filter((s) => s.length);
 
-    for (const stmt of statements) {
-      await client.execute(stmt);
+    for (let i = 0; i < statements.length; i++) {
+      const stmt = statements[i];
+      try {
+        await client.execute(stmt);
+      } catch (err) {
+        console.error(`Fallo en sentencia ${i + 1} de ${statements.length}:`);
+        console.error(stmt);
+        throw err;
+      }
     }
 
     console.log('Migración ejecutada correctamente.');

@@ -7,6 +7,7 @@ const dishRoutes = require('./routes/dishRoutes');
 const drinkRoutes = require('./routes/drinkRoutes');
 const dessertRoutes = require('./routes/dessertRoutes');
 const promotionRoutes = require('./routes/promotionRoutes');
+const reservationRoutes = require('./routes/reservationRoutes');
 
 // Inicializar la aplicación Express
 const app = express();
@@ -26,7 +27,7 @@ app.use('/api/dishes', dishRoutes);
 app.use('/api/drinks', drinkRoutes);
 app.use('/api/desserts', dessertRoutes);
 app.use('/api/promotions', promotionRoutes);
-
+app.use('/api/reservations', reservationRoutes);
 // Ruta principal
 app.get('/', (req, res) => {
   res.json({
@@ -42,6 +43,7 @@ app.get('/', (req, res) => {
       lowCalorieDesserts: '/api/desserts/low-calorie',
       promotions: '/api/promotions',
       promotionById: '/api/promotions/:id',
+      reservationById: '/api/reservations/:id',
     }
   });
 });
