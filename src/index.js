@@ -24,12 +24,17 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 // Documentación Swagger - Configuración alternativa
-app.use('/api-docs', (req, res, next) => {
+app.use(
+  '/api-docs',
+  swaggerUi.serve,
   swaggerUi.setup(swaggerSpec, {
     explorer: true,
-    customCssUrl: 'https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.1.0/swagger-ui.min.css'
-  })(req, res, next);
-});
+    customCss: '.swagger-ui .topbar { display: none }',
+    swaggerOptions: {
+      url: '/api-docs.json'
+    }
+  })
+);
 app.get('/api-docs.json', (req, res) => res.json(swaggerSpec));
 
 // Configurar archivos estáticos
