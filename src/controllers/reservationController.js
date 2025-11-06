@@ -25,16 +25,20 @@ const reservationController = {
                 }
             }
 
-            const newReservation = await reservationModel.create({
-                reservationType,
-                fullName,
-                numPeople,
-                reservationDate,
-                reservationTime,
-                eventDetails: reservationType === 'Evento' ? eventDetails : null,
-            });
+           const newReservation = await reservationModel.create({
+                reservationType,
+                fullName,
+                numPeople,
+                reservationDate,
+                reservationTime,
+                eventDetails: reservationType === 'Evento' ? eventDetails : null,
+            });
 
-            return res.status(201).json({ success: true, data: newReservation, message: 'Reserva creada correctamente.' });
+            if (!newReservation) {
+                return res.status(500).json({ success: false, message: 'Fallo al recuperar los datos de la reserva creada (ID no encontrado).' });
+            }
+
+            return res.status(201).json({ success: true, data: newReservation, message: 'Reserva creada correctamente.' });
 
         } catch (error) {
             return res.status(500).json({ success: false, message: 'Error al crear la reserva', error: error.message });
